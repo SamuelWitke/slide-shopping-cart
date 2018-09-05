@@ -7,12 +7,9 @@ const SlideShow = styled.div`
     margin-top: 1rem;
     overflow: hidden;
     margin: 0;
-	height: 100vh;
     &:after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         background: rgba(0,0,0,0.4);
@@ -24,9 +21,7 @@ const SlideShow = styled.div`
 
 const Slide = styled.div`
     width: 100%;
-	height: 50vh;
-	top: 0;
-	left: 0;
+	height: 50px;
 	overflow-x: hidden;
     pointer-events: none;
     height: 100vh;
@@ -43,8 +38,6 @@ const SlideWrap = styled.div`
 const SlideImage = styled.div`
     width: 100%;
 	height: 100%;
-	left: 0;
-	top: 0;
 	background-color: white;
 	background-size: cover;
 	background-position: 50% 50%;
@@ -59,8 +52,6 @@ const SlideTitleWrap = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	top: 0;
-    left: 0;
     padding: calc(6rem + 10vh) 0 0 4rem;
 	text-align: left;
 `;

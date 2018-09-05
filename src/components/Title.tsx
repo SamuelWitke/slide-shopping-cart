@@ -24,7 +24,6 @@ const ContentFixed = styled.div`
 		display: grid;
 		align-content: space-between;
 		width: 100%;
-		height: 100vh;
 		padding: 1.5rem 4rem 2rem;
 		pointer-events: none;
 		align-items: start;

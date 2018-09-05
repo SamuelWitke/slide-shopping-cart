@@ -7,7 +7,9 @@
   "rules": {
     "no-unused-expression": false,
     "object-literal-sort-keys": false,
-    "no-console": false
+    "no-console": false,
+    "jsx-no-lambda": false,
+    "max-classes-per-file": false
   },
   "linterOptions": {
     "exclude": [

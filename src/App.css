@@ -252,10 +252,6 @@ main {
 	display: none;
 }
 
-.details__inner--sizes {
-	background: #d4d4d4;
-}
-
 .details__size {
 	position: relative;
 	cursor: pointer;
@@ -333,7 +329,7 @@ main {
 }
 
 .action--addtocart {
-	background: var(--color-cart-bg);
+    background: var(--color-cart-bg);
 	color: var(--color-cart);
 }
 
@@ -381,6 +377,21 @@ main {
 	.social__item-link {
 		color: #fff;
 	}
+
+	.icon {
+		display: block;
+		width: 1.5em;
+		height: 1.5em;
+		margin: 0 auto;
+		fill: currentColor;
+	}
+
+.icon-cart{
+	color: #fff;
+	display: block;
+    margin: auto;
+}	
+
 	.icon--social {
 		opacity: 0;
 		transform: translate3d(0,150%,0);
