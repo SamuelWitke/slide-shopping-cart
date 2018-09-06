@@ -102,7 +102,7 @@ width: 1.5rem;
 export default class DetailsComp extends React.Component<any, {}> {
 
     public state = {
-        sizes: ["XL", "L", "M", "S"],
+        selectedColor: "red",
         selectedSize: "M",
     }
     constructor(props: any) {
@@ -110,17 +110,18 @@ export default class DetailsComp extends React.Component<any, {}> {
         this.selectSize = this.selectSize.bind(this);
     }
     public render() {
-        const { sizes, selectedSize } = this.state;
+        const { selectedSize, selectedColor } = this.state;
+        const { smallImg, price, colors, sizes } = this.props;
         return (
             <Details>
                 <Image>
                     <Inner>
-                        <img src="https://github.com/codrops/SlideOutBoxMenu/blob/master/img/small/1.jpg?raw=true" alt="Some image" />
+                        <img src={smallImg} alt="Some image" />
                     </Inner>
                 </Image>
                 <ItemSizes>
                     <Inner style={{ background: "#d4d4d4" }} >
-                        {sizes.map((size, i) => {
+                        {sizes.map((size: any, i: number) => {
                             const activeSize: React.CSSProperties = size === selectedSize ? {
                                 width: '64px',
                                 lineHeight: '64px',
@@ -150,19 +151,24 @@ export default class DetailsComp extends React.Component<any, {}> {
                 </ItemCart>
                 <ItemColors>
                     <Grid>
-                        <Color className="details__color--white">
-                            White
-                        </Color>
-                        <Color className="details__color--red">Red</Color>
-                        <Color className="details__color--black">Black</Color>
-                        <Color className="details__color--blue">Blue</Color>
-                        <Color className="details__color--beige">Beige</Color>
-                        <Color className="details__color--sky">Sky</Color>
+                        {colors.map((color: any, i: number) => {
+                            const activeSize: React.CSSProperties = color === selectedColor ? {
+                                borderRadius: '50%',
+                                textAlign: "center",
+                                fontSize: "16px",
+                                border: '2px solid #333',
+                            } : {};
+                            return (
+                                <Color onClick={() => this.selectColor(color)} key={i} style={activeSize} className={`details__color--${color}`}>
+                                    {color}
+                                </Color>
+                            )
+                        })}
                     </Grid>
                 </ItemColors>
                 <ItemPrice>
                     <Price>
-                        $89
+                        ${price}
                     </Price>
                 </ItemPrice>
                 <ItemClose>
@@ -175,5 +181,8 @@ export default class DetailsComp extends React.Component<any, {}> {
     }
     private selectSize = (selectedSize: string) => {
         this.setState({ selectedSize })
+    }
+    private selectColor = (selectedColor: string) => {
+        this.setState({ selectedColor })
     }
 }
